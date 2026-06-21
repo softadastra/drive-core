@@ -1,48 +1,62 @@
-# Softadastra
+# Softadastra Engine
 
-**Software that keeps working when the internet is unstable.**
+**Offline-first runtime foundations for C++ applications.**
 
-Softadastra helps organizations build applications that can save data locally, continue working offline, and synchronize when the connection comes back.
+Softadastra Engine helps C++ applications keep working when the network is slow, unstable, expensive, or unavailable.
+
+It provides foundations for local state, write-ahead logging, durable storage, retry, sync, transport, and recovery.
 
 <p align="center">
   <img
     src="https://res.cloudinary.com/dwjbed2xb/image/upload/v1778700690/architecture_ukigg6.png"
-    alt="Softadastra architecture"
+    alt="Softadastra Engine architecture"
     width="760"
   />
 </p>
 
-## What is Softadastra ?
+## What is Softadastra Engine?
 
-Softadastra is a reliability foundation for applications used in real-world conditions.
-It is built for environments where the internet can be slow, unstable, expensive, or unavailable.
-Instead of stopping when the connection fails, an application built with Softadastra can keep saving work locally and synchronize later.
+Softadastra Engine is the offline-first runtime layer inside the Softadastra C++ tooling ecosystem.
 
-## Who is it for ?
+It is designed for applications that need to:
 
-Softadastra is designed for organizations and teams that cannot afford to lose data because of poor connectivity.
-It can be useful for:
+- save work locally
+- persist important operations
+- recover after interruption
+- retry safely
+- synchronize when possible
+- keep useful behavior available without depending on a perfect network
 
-- companies operating in unstable network environments
-- public institutions and government systems
-- schools and universities
-- healthcare and field operations
-- logistics and local business tools
-- developers building offline-ready applications
+## Core model
 
-## What problem does it solve ?
+```txt
+write locally
+persist safely
+recover after failure
+retry when needed
+sync when possible
+```
 
-Many applications depend too much on a constant internet connection.
-When the connection fails, users can lose time, lose work, or stop completely.
-Softadastra helps applications stay usable during those moments by making local work possible first, then synchronizing later when the connection is available again.
+## Ecosystem role
 
-## What this repository provides
+```txt
+Vix.cpp
+  -> C++ runtime and developer tooling foundation
 
-This repository contains the main Softadastra runtime and command-line tool.
-It provides the base system used to run, inspect, and control Softadastra locally.
-For developers who want to integrate Softadastra into their own C++ applications, use the SDK:
+Softadastra Engine
+  -> offline-first runtime layer
 
-[github.com/softadastra/sdk](https://github.com/softadastra/sdk)
+Cnerium
+  -> retry-safe backend reliability for Vix applications
+
+Kordex
+  -> JavaScript and TypeScript runtime built on Vix.cpp
+```
+
+Softadastra Engine is not the whole Softadastra company.
+
+Softadastra Company is focused on C++ tooling.
+This repository contains the engine layer.
 
 ## Install
 
@@ -58,13 +72,20 @@ Windows PowerShell:
 irm https://softadastra.com/install.ps1 | iex
 ```
 
-The installer can install the Softadastra command-line tool and the C++ SDK.
+## Documentation
+
+Read the documentation here:
+
+- https://docs.softadastra.com
 
 ## Learn more
 
-- Website: [softadastra.com](https://softadastra.com)
-- Documentation: [docs.softadastra.com](https://docs.softadastra.com)
-- SDK: [github.com/softadastra/sdk](https://github.com/softadastra/sdk)
+- Website: https://softadastra.com
+- Documentation: https://docs.softadastra.com
+- Repository: https://github.com/softadastra/softadastra
+- Vix.cpp: https://vixcpp.com
+- Cnerium: https://github.com/softadastra/cnerium
+- Kordex: https://github.com/softadastra/kordex
 
 ## License
 
